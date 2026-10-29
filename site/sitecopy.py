@@ -58,11 +58,12 @@ def stack_html(S, key, name, intent, stones, link=True):
     if len(xs) < 2: return ''
     vids = ','.join(f"{next(v for v in x['variants'] if v['available'])['id']}:1" for x in xs)
     total = sum(x['price'] for x in xs)
-    buy = f"{S.SHOP}/cart/{vids}?attributes%5BStorefront%5D=Namaste%20Bead%20Store"
+    atc = [{'v': str(next(v for v in x['variants'] if v['available'])['id']), 'h': x['handle'], 't': x['title'], 'p': f"{float(next(v for v in x['variants'] if v['available'])['price']):.2f}",
+            'i': x['images'][0] + ('&' if '?' in x['images'][0] else '?') + 'width=400', 'c': x['aisle'], 'k': x['base']} for x in xs]
     names = plist([S.STONE_NAME[x['family']] for x in xs])
     return (f'<div class="stack"><div><h3>{E(name)}</h3><p>{E(names)}: {len(xs)} stone bead bracelets that tradition links with {E(S.INTENT_NAME[intent].lower())}.</p>'
-            f'<p class="total">Today: {S.money(total)} for all {len(xs)}</p><p><a class="btn buy" href="{E(buy)}" rel="nofollow">Add the stack to cart</a></p>'
-            f'<p class="small">Opens Shopify checkout with all {len(xs)} bracelets. Prices are live at checkout.{" Choose Pickup to collect on 14th Street." if S.PICKUP_ON else ""}</p>'
+            f'<p class="total">Today: {S.money(total)} for all {len(xs)}</p><p><button type="button" class="btn buy" data-atc-items="{E(__import__('json').dumps(atc))}">Add the stack to cart</button></p>'
+            f'<p class="small">Adds all {len(xs)} bracelets to your cart; remove any before you check out. Prices are confirmed live.{" Choose Pickup to collect on 14th Street." if S.PICKUP_ON else ""}</p>'
             + (f'<p><a href="/stacks/{key}/">About this stack &rarr;</a></p>' if link else '') + f'</div>{S.grid(xs)}</div>')
 def FOOTER_EXPLORE(S):
     return [('Stacking sets', '/stacks/'), ('Build a stack', '/build-your-stack/'), ('Bracelets by stone', '/stones/'), ('Bracelets by intention', '/intentions/'),
@@ -182,7 +183,7 @@ def FAQ(S):
             ('Which bead size is best?', '8 mm is the classic; mini 2 to 4 mm strands are great for layering; 10 to 12 mm is bold.'),
             ('Will it fit?', 'Stretch bracelets fit most wrists around 6.5 to 7 inches. Titles that say BIG Wrist run longer.'),
             ('Do the stacks really work?', 'Stacks follow crystal traditions. We present them as meaning and style, not as proven effects.'),
-            ('How does Add the stack to cart work?', 'It opens a Shopify checkout with all the bracelets in the stack. You can remove any before paying.'),
+            ('How does Add the stack to cart work?', 'It puts every bracelet in the stack into your cart in one tap. You can change or remove any before you check out.'),
             ('Can I pick up today?', 'Choose Pickup at checkout.' + (f' Orders are {S.READY.lower()}.' if S.READY else '')),
             ('Where are you?', f'{S.STORE_ADDR}, a 4-minute walk from 14 St&ndash;Union Square.')]
 def GUIDES(S):
