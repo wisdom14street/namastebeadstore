@@ -1,0 +1,9 @@
+:root{--ink:#14324a;--onink:#f2f8f5;--paper:#f2f8f5;--card:#ffffff;--soft:#dff2ea;--muted:#4d6273;--line:#d3e6de;--accent:#3fbf9b;--onaccent:#0d2233;--accentdark:#1d7a5f;--focus:#c2410c;
+--display:"DM Serif Display",Georgia,serif;--body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--r:12px;--btnr:10px}
+h1,h2,h3{font-weight:400}
+.hero{background:linear-gradient(90deg,#14324a 0 55%,#1d4d6b 55% 100%)}
+.hero h1 em{font-style:normal;color:#7fe0c4}
+.collage{grid-template-columns:1fr 1fr 1fr}.collage img{border-radius:999px;aspect-ratio:1/2.2}.collage img:nth-child(4){display:none}
+.bar{background:#7fe0c4;color:#0d2233}.card{border-width:0 0 4px;border-color:var(--accent)}
+.stack{display:grid;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;margin:0 0 18px}@media(min-width:800px){.stack{grid-template-columns:1.2fr 2fr}}
+.stack .grid{grid-template-columns:repeat(3,1fr)!important}.stack h3{font-size:24px}.stack .total{font-size:20px;font-weight:700}
