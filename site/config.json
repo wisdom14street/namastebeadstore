@@ -13,5 +13,6 @@
   "best_collections": ["crystal-bead-bracelets", "8mm-beaded-bracelet", "4mm-beaded-bracelet", "6mm-beaded-bracelet", "10mm-beaded-bracelet", "chakra-bracelets"],
   "siblings": [["Namaste Beads: bracelets, malas & strands", "https://namastebeads.com/"], ["Namaste Bead Shop: malas & meditation", "https://namastebeadshop.com/"], ["Namaste Jewelry Store: gifts under $30", "https://namastejewelrystore.com/"], ["Manhattan Crystal Market", "https://manhattancrystalmarket.com/"]],
   "theme": {"ink": "#14324a", "paper": "#f2f8f5", "accent": "#3fbf9b",
-            "fonts": "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap"}
+            "fonts": "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap"},
+ "GA_MEASUREMENT_ID": "G-Y7R5K9NMW0"
 }
